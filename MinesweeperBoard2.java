@@ -55,6 +55,7 @@ public class MinesweeperBoard2{
         }
     }
 
+    //Mk 1
     public void addNums(){
         int index = 0;
         for (int i = 0; i < rows; i++)

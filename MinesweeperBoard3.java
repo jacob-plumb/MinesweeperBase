@@ -55,12 +55,13 @@ public class MinesweeperBoard3{
         }
     }
 
+    //Mk 2
     public void addNums(){
         for (int i = 0; i < rows * columns; i++)
         {
             if(board[i].isBomb()){
                 if((i >= columns) && (i%columns != 0)) {board[i - columns - 1].addValue();} //TOP LEFT
-                if(i >= columns) { board[i - columns].addValue();} //TOP CENTER
+                if(i >= columns) {board[i - columns].addValue();} //TOP CENTER
                 if((i >= columns) && (i%columns != (columns - 1))) {board[i - columns + 1].addValue();} //TOP RIGHT
                 if(i%columns != 0) {board[i - 1].addValue();} //MIDDLE LEFT
                 if(i%columns != (columns - 1)) {board[i + 1].addValue();} //MIDDLE RIGHT
