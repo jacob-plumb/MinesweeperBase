@@ -42,7 +42,7 @@ public class MinesweeperBoard2{
     public void addBombs(int bombs) { //throws Exception{
         for (int i = 0; i < bombs; i++)
         {
-            int index = (int)((Math.random() * (rows * columns) - 1));
+            int index = (int)((Math.random() * ((rows * columns) - 1)));
 
             if (board[index].isBomb())
             {
@@ -57,9 +57,9 @@ public class MinesweeperBoard2{
 
     public void addNums(){
         int index = 0;
-        for (int i = 0; i < columns; i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < rows; j++)
+            for (int j = 0; j < columns; j++)
             {
                 if (board[index].getValue() != -1)
                 {
@@ -70,65 +70,65 @@ public class MinesweeperBoard2{
                         {
                             board[index].addValue();
                         }
-                        if (board[index + rows].isBomb())
+                        if (board[index + columns].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + rows + 1].isBomb())
+                        if (board[index + columns + 1].isBomb())
                         {
                             board[index].addValue();
                         }
                     }
                     //TOP-RIGHT CORNER
-                    else if(index == rows - 1)
+                    else if(index == columns - 1)
                     {
                         if (board[index - 1].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + rows].isBomb())
+                        if (board[index + columns].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + rows - 1].isBomb())
+                        if (board[index + columns - 1].isBomb())
                         {
                             board[index].addValue();
                         }
                     }
                     //BOTTOM-LEFT CORNER
-                    else if(index == (columns - 1) * rows)
+                    else if(index == (rows - 1) * columns)
                     {
                         if (board[index + 1].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - rows].isBomb())
+                        if (board[index - columns].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - rows + 1].isBomb())
+                        if (board[index - columns + 1].isBomb())
                         {
                             board[index].addValue();
                         }
                     }
                     //BOTTOM-RIGHT CORNER
-                    else if (index == (columns * rows) - 1)
+                    else if (index == (rows * columns) - 1)
                     {
                         if (board[index - 1].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - rows].isBomb())
+                        if (board[index - columns].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - rows - 1].isBomb())
+                        if (board[index - columns - 1].isBomb())
                         {
                             board[index].addValue();
                         }
                     }
                     //TOP ROW
-                    else if (index < rows)
+                    else if (index < columns)
                     {
                         //CHECKING SIDES
                         if (board[index - 1].isBomb())
@@ -140,32 +140,32 @@ public class MinesweeperBoard2{
                             board[index].addValue();
                         }
                         //CHECKING BOTTOM
-                        if (board[index + (rows - 1)].isBomb())
+                        if (board[index + (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows)].isBomb())
+                        if (board[index + (columns)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows + 1)].isBomb())
+                        if (board[index + (columns + 1)].isBomb())
                         {
                             board[index].addValue();
                         }
                     }
                     //BOTTOM ROW
-                    else if (i == (columns - 1))
+                    else if (i == (rows - 1))
                     {
                         //CHECKING ABOVE
-                        if (board[index - (rows - 1)].isBomb())
+                        if (board[index - (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - (rows)].isBomb())
+                        if (board[index - (columns)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - (rows + 1)].isBomb())
+                        if (board[index - (columns + 1)].isBomb())
                         {
                             board[index].addValue();
                         }
@@ -180,13 +180,13 @@ public class MinesweeperBoard2{
                         }
                     }
                     //LEFT-MOST COLUMN
-                    else if (index == (i * rows))
+                    else if (index == (i * columns))
                     {
-                        if (board[index - rows].isBomb())
+                        if (board[index - columns].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - (rows - 1)].isBomb())
+                        if (board[index - (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
@@ -194,23 +194,23 @@ public class MinesweeperBoard2{
                         {
                             board[index].addValue();
                         }
-                        if (board[index + rows].isBomb())
+                        if (board[index + columns].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows + 1)].isBomb())
+                        if (board[index + (columns + 1)].isBomb())
                         {
                             board[index].addValue();
                         }
                     }
                     //RIGHT-MOST COLUMN
-                    else if (index == ((i + 1) * rows) - 1)
+                    else if (index == ((i + 1) * columns) - 1)
                     {
-                        if (board[index - (rows - 1)].isBomb())
+                        if (board[index - (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - rows].isBomb())
+                        if (board[index - columns].isBomb())
                         {
                             board[index].addValue();
                         }
@@ -218,11 +218,11 @@ public class MinesweeperBoard2{
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows - 1)].isBomb())
+                        if (board[index + (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows)].isBomb())
+                        if (board[index + (columns)].isBomb())
                         {
                             board[index].addValue();
                         }
@@ -231,15 +231,15 @@ public class MinesweeperBoard2{
                     {
                         //THIS IS FOR SURROUNDED CELLS
                         //CHECKING ABOVE
-                        if (board[index - (rows - 1)].isBomb())
+                        if (board[index - (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - (rows)].isBomb())
+                        if (board[index - (columns)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index - (rows + 1)].isBomb())
+                        if (board[index - (columns + 1)].isBomb())
                         {
                             board[index].addValue();
                         }
@@ -253,15 +253,15 @@ public class MinesweeperBoard2{
                             board[index].addValue();
                         }
                         //CHECKING BOTTOM
-                        if (board[index + (rows - 1)].isBomb())
+                        if (board[index + (columns - 1)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows)].isBomb())
+                        if (board[index + (columns)].isBomb())
                         {
                             board[index].addValue();
                         }
-                        if (board[index + (rows + 1)].isBomb())
+                        if (board[index + (columns + 1)].isBomb())
                         {
                             board[index].addValue();
                         }
@@ -277,9 +277,9 @@ public class MinesweeperBoard2{
      */
     public void printBoard(){
         int val = 0;
-        for (int c = 0; c < columns; c++)
+        for (int r = 0; r < rows; r++)
         {
-            for (int r = 0; r < rows; r++){
+            for (int c = 0; c < columns; c++){
                 if (board[val].isBomb())
                 {
                     System.out.print("X ");

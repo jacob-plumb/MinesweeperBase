@@ -54,7 +54,10 @@ public class Cell implements ActionListener{
     
     public void addValue()
     {
-        value++;
+        if(value != - 1)
+        {
+            value++;
+        }
     }
     
     public void setBomb()
