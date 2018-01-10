@@ -67,7 +67,7 @@ public class MinesweeperBoard2D{
                     if(i > 0){board[i-1][j].addValue();}
                     if((i > 0) && (j < columns-1)){board[i-1][j+1].addValue();}
                     if(j > 0){board[i][j-1].addValue();}
-                    if(j < columns-1){board[i][j-1].addValue();}
+                    if(j < columns-1){board[i][j+1].addValue();}
                     if((i < rows-1) && (j > 0)){board[i+1][j-1].addValue();}
                     if(i < rows-1){board[i+1][j].addValue();}
                     if((i < rows-1) && (j < columns-1)){board[i+1][j+1].addValue();}
@@ -80,7 +80,6 @@ public class MinesweeperBoard2D{
      *  It is still required for all students.
      */
     public void printBoard(){
-        int val = 0;
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++){
@@ -92,6 +91,25 @@ public class MinesweeperBoard2D{
                 {
                     System.out.print(board[i][j].getValue() + " ");
                 }
+            }
+            System.out.println();
+        }
+    }
+    
+    public void printRowCol(){
+        System.out.println("ROWS");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++){
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+        System.out.println("COLUMNS");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++){
+                System.out.print(j);
             }
             System.out.println();
         }
